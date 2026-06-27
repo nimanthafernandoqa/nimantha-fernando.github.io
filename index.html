@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nimantha Fernando | Automation Lead & QA SME</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1F4E79;
+      --navy-dark: #163a5e;
+      --blue: #2E75B6;
+      --light-blue: #EBF3FB;
+      --accent: #F0A500;
+      --text: #2c2c2c;
+      --muted: #666;
+      --border: #dde4ed;
+      --white: #ffffff;
+      --bg: #f5f7fb;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, var(--blue) 100%);
+      color: white;
+      padding: 56px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+    .avatar {
+      width: 96px; height: 96px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 3px solid rgba(255,255,255,0.4);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    header .subtitle {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 6px;
+    }
+    .visa-badge {
+      display: inline-block;
+      margin-top: 10px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      padding: 4px 16px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.92);
+    }
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 24px;
+      margin-top: 22px;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .contact-bar a {
+      color: rgba(255,255,255,0.9);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .contact-bar a:hover { color: white; }
+    .contact-bar svg { flex-shrink: 0; }
+
+    /* ── NAV ── */
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+    nav ul li a {
+      display: block;
+      padding: 14px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s, border-bottom 0.2s;
+      border-bottom: 3px solid transparent;
+    }
+    nav ul li a:hover {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: white;
+      border-radius: 10px;
+      padding: 36px 40px;
+      margin: 28px 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--blue);
+      display: inline-block;
+    }
+
+    /* ── PROFILE ── */
+    .profile-text {
+      font-size: 1rem;
+      color: #3a3a3a;
+      line-height: 1.75;
+    }
+
+    /* ── ACHIEVEMENTS ── */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 4px;
+    }
+    .achievement-card {
+      background: var(--light-blue);
+      border-left: 4px solid var(--blue);
+      border-radius: 6px;
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .achievement-card strong {
+      color: var(--navy);
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    /* ── SKILLS ── */
+    .skills-groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .skill-group h4 {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .tag {
+      background: var(--light-blue);
+      color: var(--navy);
+      border: 1px solid #c5daf0;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .tag.highlight {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+    }
+    .tag.new {
+      background: #fff7e6;
+      color: #b36a00;
+      border-color: #f5c87a;
+    }
+
+    /* ── EXPERIENCE ── */
+    .job { margin-bottom: 36px; }
+    .job:last-child { margin-bottom: 0; }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+    .job-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .job-company {
+      font-size: 0.95rem;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .job-dates {
+      font-size: 0.83rem;
+      color: var(--muted);
+      font-weight: 500;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3px 12px;
+      white-space: nowrap;
+    }
+    .job-tech {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-style: italic;
+      margin: 6px 0 10px;
+    }
+    .job ul { padding-left: 18px; }
+    .job ul li {
+      font-size: 0.92rem;
+      color: #3a3a3a;
+      margin-bottom: 6px;
+      line-height: 1.55;
+    }
+    .job-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 28px 0;
+    }
+
+    /* ── LEARNING ── */
+    .learning-box {
+      background: linear-gradient(135deg, #fff7e6 0%, #fef3e0 100%);
+      border: 1px solid #f5c87a;
+      border-left: 5px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px 22px;
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: #4a3000;
+      margin-bottom: 18px;
+    }
+    .learning-box h4 {
+      color: #b36a00;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .edu-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--light-blue);
+      border: 2px solid var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 14px;
+    }
+    .edu-text strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--navy);
+    }
+    .edu-text span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: white;
+      text-align: center;
+      padding: 40px;
+      border-radius: 10px;
+    }
+    .cta-section h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-white {
+      background: white;
+      color: var(--navy);
+    }
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      section { padding: 24px 18px; }
+      header h1 { font-size: 1.8rem; }
+      .job-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="avatar">NF</div>
+  <h1>Nimantha Fernando</h1>
+  <div class="subtitle">Automation Lead / Engineer &nbsp;·&nbsp; QA SME &nbsp;·&nbsp; ISTQB Certified</div>
+  <div class="subtitle">15+ Years in Banking, Financial Services &amp; Healthcare SaaS</div>
+  <div class="visa-badge">✅ Right to Work in UK &nbsp;·&nbsp; Student Dependent Visa &nbsp;·&nbsp; No Sponsorship Required</div>
+  <div class="contact-bar">
+    <a href="mailto:nimanthafernandoqa@gmail.com">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      nimanthafernandoqa@gmail.com
+    </a>
+    <a href="tel:07552365272">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.08 3.38 2 2 0 0 1 3.06 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      07552 365 272
+    </a>
+    <span>📍 Bexley, UK DA5 3AP</span>
+    <a href="https://www.linkedin.com/in/nimantha-fernando-05817b45" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn Profile
+    </a>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <ul>
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#learning">Learning</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+  <!-- PROFILE -->
+  <section id="profile">
+    <div class="section-title">Professional Profile</div>
+    <p class="profile-text">
+      Senior Automation Engineer and QA SME with 15+ years of experience delivering end-to-end quality solutions across the full SDLC in Banking, Financial Services, and Healthcare SaaS. Hands-on in TypeScript-based automation frameworks (Playwright, Cypress), SQL, and API/GUI automation, with a strong track record of expanding test coverage, accelerating CI/CD-driven releases, and mentoring QA engineers.
+      <br><br>
+      Experienced in Agile/Scrum environments across globally distributed teams, working closely with Business Analysts, Solution Architects, and stakeholders to catch requirement gaps early. Adept at test plan design, test data engineering, defect management, and building automation tooling — including agent-based workflows using TypeScript and Claude API.
+    </p>
+  </section>
+
+  <!-- KEY ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="section-title">Key Achievements</div>
+    <div class="achievements-grid">
+      <div class="achievement-card">
+        <strong>95% Regression Coverage</strong>
+        Built Playwright + Cypress frameworks from scratch, cutting release cycles from 3 weeks to 1 week and manual testing effort by 45%.
+      </div>
+      <div class="achievement-card">
+        <strong>30% Fewer Defects</strong>
+        Reduced deployment-related defects through structured risk-based testing and continuous improvement in Jira.
+      </div>
+      <div class="achievement-card">
+        <strong>Sole QA Hire</strong>
+        Designed and built all QA processes, test standards, and CI/CD pipelines from the ground up on a live healthcare SaaS platform.
+      </div>
+      <div class="achievement-card">
+        <strong>Banking at Scale</strong>
+        Deep testing across OCCU Bank, UMPQUA, and PSECU — complex data-heavy platforms with high-volume SQL backends.
+      </div>
+      <div class="achievement-card">
+        <strong>5+ Engineers Mentored</strong>
+        Coached and upskilled QA engineers in automation best practices, test analysis, and quality process adherence.
+      </div>
+      <div class="achievement-card">
+        <strong>15+ Years Experience</strong>
+        Consistently delivering quality across Banking, Financial Services, and Healthcare SaaS in Agile environments.
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-title">Core Skills</div>
+    <div class="skills-groups">
+
+      <div class="skill-group">
+        <h4>Test Automation</h4>
+        <div class="tags">
+          <span class="tag highlight">Playwright (TypeScript)</span>
+          <span class="tag highlight">Cypress</span>
+          <span class="tag">Selenium (Java)</span>
+          <span class="tag">Postman / REST API</span>
+          <span class="tag">GUI Automation</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>CI/CD & Infrastructure</h4>
+        <div class="tags">
+          <span class="tag highlight">GitHub Actions</span>
+          <span class="tag">Jenkins</span>
+          <span class="tag">AWS</span>
+          <span class="tag">Docker (awareness)</span>
+          <span class="tag">Unix / Linux</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Data & Backend</h4>
+        <div class="tags">
+          <span class="tag highlight">SQL (complex queries)</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Test Data Engineering</span>
+          <span class="tag">Backend Validation</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Test Management</h4>
+        <div class="tags">
+          <span class="tag">Jira</span>
+          <span class="tag">Confluence</span>
+          <span class="tag">X-ray</span>
+          <span class="tag">Zephyr</span>
+          <span class="tag">Defect Management</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>QA Lifecycle</h4>
+        <div class="tags">
+          <span class="tag">Requirement Analysis</span>
+          <span class="tag">Test Plan Design</span>
+          <span class="tag">Regression Testing</span>
+          <span class="tag">Integration Testing</span>
+          <span class="tag">UAT / Acceptance</span>
+          <span class="tag">Performance Testing</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Agent & AI Tooling 🆕</h4>
+        <div class="tags">
+          <span class="tag new">TypeScript Agents</span>
+          <span class="tag new">Claude API</span>
+          <span class="tag new">Multi-step Workflows</span>
+          <span class="tag new">Automated QA Agents</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Domain Knowledge</h4>
+        <div class="tags">
+          <span class="tag">Banking SaaS</span>
+          <span class="tag">Capital Markets</span>
+          <span class="tag">Healthcare SaaS</span>
+          <span class="tag">Insurance</span>
+          <span class="tag">CRM Integrations</span>
+          <span class="tag">Trade Lifecycle</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Ways of Working</h4>
+        <div class="tags">
+          <span class="tag">Agile / Scrum</span>
+          <span class="tag">Cross-functional Teams</span>
+          <span class="tag">Global Teams</span>
+          <span class="tag">Stakeholder Comms</span>
+          <span class="tag">Mentoring</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-title">Professional Experience</div>
+
+    <div class="job">
+      <div class="job-header">
+        <div>
+          <div class="job-title">Automation Engineer / QA SME <span style="font-weight:400;color:var(--muted)">(Sole QA Hire)</span></div>
+          <div class="job-company">Be Rota Ltd / TTM Healthcare</div>
+        </div>
+        <span class="job-dates">May 2022 – June 2026</span>
+      </div>
+      <div class="job-tech">Healthcare SaaS &nbsp;·&nbsp; Agile/Scrum &nbsp;·&nbsp; TypeScript, Cypress, Playwright &nbsp;·&nbsp; PostgreSQL &nbsp;·&nbsp; REST APIs &nbsp;·&nbsp; AWS &nbsp;·&nbsp; GitHub Actions</div>
+      <ul>
+        <li>Took full QA ownership as the sole QA engineer — built all test processes, automation frameworks, and QA standards from scratch, covering the entire SDLC from requirement analysis through to production release.</li>
+        <li>Developed Playwright automation frameworks for web using TypeScript, integrated into GitHub Actions CI/CD; achieved 95% regression coverage and cut release cycles from 3 weeks to 1 week.</li>
+        <li>Performed requirement analysis and test plan design in collaboration with BAs and developers — identified functional risks and requirement gaps early in each sprint.</li>
+        <li>Engineered test data strategies and maintained structured test repositories; tracked defects and produced quality metrics in Jira, driving continuous QA process improvement.</li>
+        <li>Executed functional, regression, integration, and acceptance testing across complex workflows; used production logs and usage patterns to guide risk-based test prioritisation.</li>
+        <li>Collaborated closely with Developers and Product stakeholders throughout each Agile sprint, communicating technical and UX risks clearly to both technical and non-technical audiences.</li>
+      </ul>
+    </div>
+
+    <hr class="job-divider">
+
+    <div class="job">
+      <div class="job-header">
+        <div>
+          <div class="job-title">Senior Automation Engineer / QA Team Lead</div>
+          <div class="job-company">SoftCode IT Solutions Pvt Ltd</div>
+        </div>
+        <span class="job-dates">Jan 2013 – Apr 2022</span>
+      </div>
+      <div class="job-tech">Banking & Financial SaaS — OCCU Bank, UMPQUA, PSECU &nbsp;·&nbsp; Agile &nbsp;·&nbsp; Python, Selenium, Cypress &nbsp;·&nbsp; SQL &nbsp;·&nbsp; REST APIs &nbsp;·&nbsp; CI/CD &nbsp;·&nbsp; Global teams</div>
+      <ul>
+        <li>Delivered end-to-end automation and manual testing across complex, data-heavy banking and capital markets SaaS platforms, including CRM integrations and high-volume SQL data validation.</li>
+        <li>Designed and executed test strategies across web, API, and backend layers using Selenium with Java and Cypress; integrated suites into CI/CD pipelines with Jenkins and AWS.</li>
+        <li>Performed test analysis, test plan design, test data engineering, and defect management ensuring wide functional coverage across complex trade lifecycle and financial data workflows.</li>
+        <li>Drove all phases of test execution including functional, regression, integration, performance, and acceptance testing; reduced deployment-related defects by 30%.</li>
+        <li>Mentored and coached 5+ QA engineers in automation best practices and exploratory testing; helped define and scale QA processes across growing teams.</li>
+        <li>Collaborated with BAs, Solution Architects, and globally distributed stakeholders to understand business scenarios, identify requirement gaps, and deliver quality solutions.</li>
+        <li>Used Jira, Confluence, and Zephyr for test case management, defect tracking, and quality reporting; maintained documentation repositories and trained junior team members.</li>
+      </ul>
+    </div>
+
+    <hr class="job-divider">
+
+    <div class="job">
+      <div class="job-header">
+        <div>
+          <div class="job-title">Senior QA Automation Engineer</div>
+          <div class="job-company">Leapset Pvt Ltd / Sysco (via agency)</div>
+        </div>
+        <span class="job-dates">Aug 2011 – Jan 2013</span>
+      </div>
+      <div class="job-tech">Enterprise clients: J.P. Morgan Chase, Yahoo! &nbsp;·&nbsp; Large-scale web platforms &nbsp;·&nbsp; Agile</div>
+      <ul>
+        <li>Delivered functional, regression, and integration testing across large-scale enterprise web applications with complex, data-intensive backends and high-availability requirements.</li>
+        <li>Contributed to Agile QA processes including sprint planning, defect tracking, and quality reporting alongside cross-functional product and engineering teams.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- RECENT LEARNING -->
+  <section id="learning">
+    <div class="section-title">Recent Learning</div>
+    <div class="learning-box">
+      <h4>🤖 Agent Development — TypeScript &amp; Claude API</h4>
+      Alongside day-to-day QA work, been actively building practical skills in agent-based automation using TypeScript and Claude API. This has involved designing agents that handle multi-step tasks end-to-end — from pulling test results and summarising failures, to generating test data and drafting defect reports. The focus has been on making these workflows genuinely useful in a QA context, not just experimenting for the sake of it. This complements existing TypeScript automation experience and opens up faster ways to handle the more repetitive parts of the QA cycle.
+    </div>
+    <div class="tags">
+      <span class="tag new">TypeScript Agents</span>
+      <span class="tag new">Claude API</span>
+      <span class="tag new">Multi-step Workflows</span>
+      <span class="tag new">Test Result Analysis</span>
+      <span class="tag new">Log Summarisation</span>
+      <span class="tag new">QA Automation via Agents</span>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-title">Education &amp; Certifications</div>
+
+    <div class="edu-item">
+      <div class="edu-icon">🏅</div>
+      <div class="edu-text">
+        <strong>ISTQB Certified Tester Foundation Level</strong>
+        <span>Internationally recognised software testing certification</span>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-text">
+        <strong>MSc Information Technology (Merit)</strong>
+        <span>University of East London, UK</span>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-text">
+        <strong>BSc Computer Science (1st Class Honours)</strong>
+        <span>Bangalore University, India</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section id="contact" class="cta-section">
+    <h3>Open to New Opportunities</h3>
+    <p>Available now &nbsp;·&nbsp; No sponsorship required &nbsp;·&nbsp; Based in Bexley, UK</p>
+    <div class="cta-buttons">
+      <a class="btn btn-white" href="mailto:nimanthafernandoqa@gmail.com">📧 Get in Touch</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/nimantha-fernando-05817b45" target="_blank" rel="noopener">LinkedIn Profile</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Nimantha Fernando &nbsp;·&nbsp; Bexley, UK &nbsp;·&nbsp; nimanthafernandoqa@gmail.com</p>
+</footer>
+
+</body>
+</html>
