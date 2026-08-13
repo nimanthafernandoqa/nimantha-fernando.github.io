@@ -63,6 +63,57 @@
     /* ── SUMMARY ── */
     .summary p { font-size: 1rem; color: #333; }
 
+    /* ── PROJECTS ── */
+    .project-card {
+      border: 1px solid #dbe6f3;
+      border-radius: 8px;
+      padding: 20px;
+      background: #fbfdff;
+      margin-bottom: 16px;
+    }
+    .project-card:last-child { margin-bottom: 0; }
+    .project-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a3f6f;
+      margin-bottom: 6px;
+    }
+    .project-title a { color: #1a3f6f; text-decoration: none; }
+    .project-title a:hover { text-decoration: underline; }
+    .project-meta {
+      font-size: 0.84rem;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .project-link {
+      display: inline-block;
+      border-radius: 6px;
+      border: 1px solid #1a3f6f;
+      color: #1a3f6f;
+      padding: 6px 12px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .project-link.primary {
+      background: #1a3f6f;
+      color: #fff;
+    }
+    .project-link:hover { text-decoration: underline; }
+    .project-card ul { padding-left: 18px; }
+    .project-card li {
+      font-size: 0.92rem;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
     /* ── SKILLS GRID ── */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
     .skill-tag {
@@ -173,12 +224,13 @@
       <div class="skill-tag highlight">Playwright (TypeScript)</div>
       <div class="skill-tag highlight">API Testing: Postman</div>
       <div class="skill-tag highlight">Manual Testing</div>
-      <div class="skill-tag highlight">AI Agents: Claude API</div>
+      <div class="skill-tag highlight">QA Failure Triage Reports</div>
       <div class="skill-tag">Cypress + Cucumber / Gherkin</div>
       <div class="skill-tag">Selenium (Java)</div>
       <div class="skill-tag">Appium: iOS &amp; Android</div>
       <div class="skill-tag">Cross-Browser Testing</div>
       <div class="skill-tag">REST API Automation</div>
+      <div class="skill-tag">GraphQL API Testing</div>
       <div class="skill-tag">SQL &amp; Data Validation</div>
       <div class="skill-tag">AWS</div>
       <div class="skill-tag">GitHub Actions CI/CD</div>
@@ -189,6 +241,30 @@
       <div class="skill-tag">Agile / Scrum</div>
       <div class="skill-tag">Exploratory Testing</div>
       <div class="skill-tag">ISTQB Certified</div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO PROJECTS -->
+  <div class="section">
+    <h2>Portfolio Projects</h2>
+
+    <div class="project-card">
+      <div class="project-title">
+        <a href="https://github.com/nimanthafernandoqa/playwright-vendure-framework" target="_blank">Playwright Vendure Framework ↗</a>
+      </div>
+      <div class="project-meta">Playwright · TypeScript · BDD/Gherkin · GraphQL API · Mobile Web · GitHub Actions</div>
+      <ul>
+        <li>Built a portfolio-grade QA automation framework for a Vendure e-commerce storefront</li>
+        <li>Covered desktop UI, mobile web, and Vendure Shop GraphQL API scenarios in one structured suite</li>
+        <li>Implemented BDD feature files, reusable step definitions, fixtures, helpers, and Page Objects</li>
+        <li>Added cart, checkout, product, authentication, API query, and mutation coverage</li>
+        <li>Integrated GitHub Actions CI/CD with a self-hosted runner for local Vendure test execution</li>
+        <li>Added automated failure triage reports showing failed scenario, likely cause, affected area, possible fixes, and rerun checks</li>
+      </ul>
+      <div class="project-links">
+        <a class="project-link primary" href="https://github.com/nimanthafernandoqa/playwright-vendure-framework" target="_blank">View Repository ↗</a>
+        <a class="project-link" href="https://github.com/nimanthafernandoqa/playwright-vendure-framework/actions/workflows/playwright.yml" target="_blank">View CI/CD ↗</a>
+      </div>
     </div>
   </div>
 
@@ -244,14 +320,14 @@
 
   <!-- AI & AGENT DEVELOPMENT -->
   <div class="section">
-    <h2>AI &amp; Agent Development</h2>
-    <div class="job-stack" style="margin-bottom:14px;">Claude API &nbsp;·&nbsp; ChatGPT &nbsp;·&nbsp; GitHub Copilot &nbsp;·&nbsp; TypeScript &nbsp;·&nbsp; Playwright &nbsp;·&nbsp; CI/CD &nbsp;&nbsp;|&nbsp;&nbsp; Self-Study / Personal Projects</div>
+    <h2>AI-Assisted QA Workflows</h2>
+    <div class="job-stack" style="margin-bottom:14px;">ChatGPT &nbsp;·&nbsp; GitHub Copilot &nbsp;·&nbsp; Playwright &nbsp;·&nbsp; TypeScript &nbsp;·&nbsp; CI/CD &nbsp;&nbsp;|&nbsp;&nbsp; Portfolio / Personal Projects</div>
     <ul style="padding-left:18px;">
-      <li style="font-size:0.92rem;color:#333;margin-bottom:6px;">Designed and built multi-step QA agents in TypeScript using the Claude API: agents that pull test results, summarise failures, generate test data, and draft defect reports end-to-end with no manual intervention</li>
-      <li style="font-size:0.92rem;color:#333;margin-bottom:6px;">Built a self-healing test agent that detects broken Playwright selectors and generates repair suggestions automatically, reducing test maintenance overhead</li>
-      <li style="font-size:0.92rem;color:#333;margin-bottom:6px;">Integrated agent workflows into CI/CD pipelines so test case generation and execution trigger automatically on each build</li>
-      <li style="font-size:0.92rem;color:#333;margin-bottom:6px;">Built a job search automation agent (TypeScript + Claude API) that researches roles, scores match percentage, and compiles application materials</li>
-      <li style="font-size:0.92rem;color:#333;margin-bottom:6px;">Day-to-day use of GitHub Copilot for code assistance and ChatGPT for test strategy, exploratory analysis, and documentation drafting</li>
+      <li style="font-size:0.92rem;color:#333;margin-bottom:6px;">Built an automated QA failure triage report workflow for Playwright runs, producing clear HTML and Markdown reports when tests fail</li>
+      <li style="font-size:0.92rem;color:#333;margin-bottom:6px;">Reports identify the failed scenario, error message, likely failure category, affected files, possible fixes, and recommended rerun checks before commit</li>
+      <li style="font-size:0.92rem;color:#333;margin-bottom:6px;">Designed the workflow to investigate and report first, avoiding unsafe auto-fixes or skipped tests for valid business scenarios</li>
+      <li style="font-size:0.92rem;color:#333;margin-bottom:6px;">Integrated failure-report artifacts into GitHub Actions so CI failures are easier to understand and explain</li>
+      <li style="font-size:0.92rem;color:#333;margin-bottom:6px;">Use ChatGPT and GitHub Copilot for test strategy, exploratory analysis, framework design, and documentation support</li>
     </ul>
   </div>
 
